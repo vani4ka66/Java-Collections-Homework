@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Problem7CombineListsOfLetters {
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        char[] input = scan.nextLine().replace(" ", "").toCharArray();
+        char[] command = scan.nextLine().replace(" ", "").toCharArray();
+        List<Character> list = new ArrayList<>();
+        List<Character> line = new ArrayList<>();
+
+        for (char letter : input) {
+            list.add(letter);
+            line.add(letter);
+        }
+
+        for (Character letter : command) {
+
+            if (!line.contains(letter)){
+                list.add(letter);
+            }
+        }
+
+        for (Character letter : list) {
+            System.out.print(letter + " ");
+
+        }
+
+
+    }
+}
