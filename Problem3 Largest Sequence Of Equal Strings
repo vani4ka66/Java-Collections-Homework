@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Problem3LargestSequenceOfEqualStrings {
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine();
+        String[] line = input.split(" ");
+
+        int count = 1;
+        int max = 0;
+        int currentIndex = 0;
+
+        for (int i = 1; i < line.length; i++) {
+
+            if (line[i].equals(line[i - 1])){
+                count++;
+                if (max < count){
+                    max = count;
+                    currentIndex = i;
+                }
+            }
+            else {
+                count = 1;
+            }
+        }
+        if (max != 0) {
+
+            int startIndex = currentIndex - max + 1;
+
+            for (int i = startIndex; i <= currentIndex; i++) {
+                System.out.print(line[i] + " ");
+            }
+        }
+        else {
+            System.out.println(line[0]);
+        }
+    }
+
+
+}
+
