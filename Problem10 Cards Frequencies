@@ -1,0 +1,37 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Problem10CardsFrequencies {
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine();
+        String[] cards = input.split("\\W+");
+
+        Map<String, Integer> cardsCount = new LinkedHashMap<>();
+
+        for (String card : cards) {
+
+            Integer count = cardsCount.get(card);
+            if (count == null){
+                count = 0;
+            }
+            cardsCount.put(card, count + 1);
+        }
+
+        double sumOfValues = 0;
+        for (Map.Entry<String,Integer> card : cardsCount.entrySet()) {
+
+            sumOfValues += card.getValue();
+        }
+
+        for (Map.Entry<String, Integer> card : cardsCount.entrySet()) {
+
+            double frequency = (card.getValue()/sumOfValues)*100;
+            System.out.printf("%s -> %.2f%%", card.getKey(), frequency);
+            System.out.println();
+        }
+
+    }
+}
