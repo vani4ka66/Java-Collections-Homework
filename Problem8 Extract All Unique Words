@@ -1,0 +1,23 @@
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Problem8ExtractAllUniqueWords {
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine().toLowerCase();
+        String[] words = input.split("\\W+");
+
+        Set<String> list = new TreeSet<>();
+
+        for (String word : words) {
+            list.add(word);
+        }
+
+        for (String word : list) {
+            System.out.print(word + " ");
+        }
+
+    }
+}
